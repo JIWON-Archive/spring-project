@@ -3,9 +3,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>devopscat cafe</title>
 </head>
 <body>
-    <h1>spring boot</h1>
+    <%@ include file="common/header.jsp" %>
+    <div id="container">
+        <div id="menuAdmin">
+            <h2 id="menuAdminH2">공지사항</h2>
+        </div>
+    </div>
+    <%@ include file="common/footer.jsp" %>
 </body>
 </html>
