@@ -28,8 +28,7 @@ import java.util.Arrays;
 // SpringSecurity를 사용하려면 써야함
 public class SecurityConfig {
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        // 스프링시큐리티 기능을 사용하고자 할 때 이 메소드 안에 작성
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception { // 스프링시큐리티 기능을 사용하고자 할 때 이 메소드 안에 작성
         http.csrf(csrf -> csrf.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
             // cors는 특정 서버로만 데이터를 넘길 수 있도록 설정할 수 있다.
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
