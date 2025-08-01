@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/common/header.css">
 </head>
 <body>
     <div id="header">

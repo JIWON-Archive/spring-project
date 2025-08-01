@@ -36,7 +36,7 @@ public class SecurityConfig {
             .authorizeHttpRequests(authz-> authz
                 .requestMatchers("/", "/loginPage", "/logout","noticeCheckPage", "register", "menu/all").permitAll()
                 .requestMatchers(HttpMethod.POST, "/login").permitAll()
-                .requestMatchers("/resources/**", "/WEB-INF/**").permitAll()
+                .requestMatchers("/css/**", "/js/**", "/WEB-INF/**").permitAll()
                 .requestMatchers("/noticerAdd", "noticeModifyPage").hasAnyAuthority("ADMIN", "MANAGER")
                 .requestMatchers(HttpMethod.POST,"/menu/add").hasAnyAuthority("ADMIN", "MANAGER")
                 .requestMatchers(HttpMethod.POST,"/menu/update").hasAnyAuthority("ADMIN", "MANAGER")

@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#footer {
+    /*background: linear-gradient(270deg, red, orange, yellow, green, blue, indigo, violet);*/
+    background: linear-gradient(90deg, #2c6e49, #3a8d6d, #6bb18f, #a9d3b0);
+    animation: rainbow 15s ease infinite;
+    /*background-color: #333333;*/
+    color: #f0f4ef;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left:0;
+}

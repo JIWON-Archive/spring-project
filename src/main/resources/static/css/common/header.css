@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    height: 30px;
+    /*background: linear-gradient(270deg, red, orange, yellow, green, blue, indigo, violet);*/
+    /*background-color: #333333;*/
+    background: linear-gradient(90deg, #2c6e49, #3a8d6d, #6bb18f, #a9d3b0);
+    color: #f0f4ef;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
