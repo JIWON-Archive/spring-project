@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.devopscat.springproject.mapper.UserMapper">
+    <insert id="insertUser" parameterType="com.devopscat.springproject.mapper.UserMapper">
+        INSERT INTO backend.user(
+            username,
+            password,
+            writer,
+            role
+        )
+        VALUES (
+            #{username},
+            #{password},
+            #{writer},
+            #{role}
+       )
+    </insert>
+
+    <select id="selectUsername" parameterType="com.devopscat.springproject.mapper.UserMapper" resultType="com.devopscat.springproject.entity.User">
+        SELECT
+               username,
+               password,
+               writer,
+               role
+       FROM backend.user
+    </select>
+
+    <select id="selectWriter" parameterType="String" resultType="String">
+        SELECT
+            writer
+        FROM backend.user
+        WHERE username = #{username}
+    </select>
+</mapper>

@@ -11,6 +11,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
@@ -34,8 +36,8 @@ public class SecurityConfig {
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
             .authorizeHttpRequests(authz-> authz
-                .requestMatchers("/", "/loginPage", "/logout","noticeCheckPage", "register", "menu/all").permitAll()
-                .requestMatchers(HttpMethod.POST, "/login").permitAll()
+                .requestMatchers("/", "/loginPage", "/logout","noticeCheckPage", "registerPage", "menu/all").permitAll()
+                .requestMatchers(HttpMethod.POST, "/login","register").permitAll()
                 .requestMatchers("/css/**", "/js/**", "/WEB-INF/**").permitAll()
                 .requestMatchers("/noticerAdd", "noticeModifyPage").hasAnyAuthority("ADMIN", "MANAGER")
                 .requestMatchers(HttpMethod.POST,"/menu/add").hasAnyAuthority("ADMIN", "MANAGER")
@@ -87,6 +89,12 @@ public class SecurityConfig {
             }
         };
     }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
