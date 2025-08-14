@@ -39,7 +39,7 @@ public class SecurityConfig {
                 .requestMatchers("/", "/loginPage", "/logout","noticeCheckPage", "registerPage", "menu/all").permitAll()
                 .requestMatchers(HttpMethod.POST, "/login","register").permitAll()
                 .requestMatchers("/css/**", "/js/**", "/WEB-INF/**").permitAll()
-                .requestMatchers("/noticerAdd", "noticeModifyPage").hasAnyAuthority("ADMIN", "MANAGER")
+                .requestMatchers("/noticeAdd", "noticeModifyPage").hasAnyAuthority("ADMIN", "MANAGER")
                 .requestMatchers(HttpMethod.POST,"/menu/add").hasAnyAuthority("ADMIN", "MANAGER")
                 .requestMatchers(HttpMethod.POST,"/menu/update").hasAnyAuthority("ADMIN", "MANAGER")
                 .requestMatchers(HttpMethod.DELETE,"/menu/delete").hasAnyAuthority("ADMIN", "MANAGER")
@@ -61,10 +61,10 @@ public class SecurityConfig {
             .logoutSuccessUrl("/")       // 로그아웃 성공 후 이 URL로 리다이렉팅
             .invalidateHttpSession(true) // 세션 무효화
             .deleteCookies("JSESSIONID") // 쿠키삭제
-            .permitAll()
+            .permitAll() // 위의 기능을 수행시키려면 이 메서드 실행
         );
-
-        return http.build();
+        // 최종 http에 적용시킬 때 사용하는 메서드
+        return http.build();    
     }
 
     @Bean
