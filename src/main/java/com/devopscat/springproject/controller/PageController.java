@@ -22,8 +22,10 @@ public class PageController {
         return "register/index";
     }
 
-    @GetMapping("loginPage")
-    public String loginPage() {
+    @GetMapping("/loginPage")
+    public String loginPage(HttpServletRequest request, Model model) {
+        CsrfToken csrfToken = (CsrfToken) request.getAttribute(CsrfToken.class.getName());
+        model.addAttribute("_csrf", csrfToken);
         return "login/index";
     }
 }
